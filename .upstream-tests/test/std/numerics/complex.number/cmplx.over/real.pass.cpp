@@ -12,16 +12,15 @@
 //   T
 //   real(const T& x);
 
+// Helper to silence warnings where conversions are tested
+#include "../msvc_fixes.h"
+
 #include <cuda/std/complex>
 #include <cuda/std/type_traits>
 #include <cuda/std/cassert>
 
 #include "test_macros.h"
 #include "../cases.h"
-
-#if defined(_MSC_VER)
-#pragma warning(disable: 4244) // conversion from 'const double' to 'int', possible loss of data
-#endif
 
 template <class T, int x>
 __host__ __device__ void
